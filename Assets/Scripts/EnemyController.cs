@@ -13,6 +13,9 @@ public class EnemyController : MonoBehaviour
     int direction = 1;
 
     Animator animator;
+
+    bool broken = true;
+
     void Start()
     {
         rigibody2d = GetComponent<Rigidbody2D>();
@@ -32,6 +35,10 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!broken)
+        {
+            return;
+        }
         Vector2 position = rigibody2d.position;
         if (vertical)
         {
@@ -55,5 +62,11 @@ public class EnemyController : MonoBehaviour
         {
             player.ChangeHealth(-1);
         }
+    }
+
+    public void Fix()
+    {
+        broken = false;
+        rigibody2d.simulated = false;
     }
 }
