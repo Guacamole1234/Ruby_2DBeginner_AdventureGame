@@ -16,6 +16,8 @@ public class EnemyController : MonoBehaviour
 
     bool broken = true;
 
+    public ParticleSystem smokeEffect;
+
     void Start()
     {
         rigibody2d = GetComponent<Rigidbody2D>();
@@ -68,5 +70,6 @@ public class EnemyController : MonoBehaviour
     {
         broken = false;
         rigibody2d.simulated = false;
+        smokeEffect.Stop();
     }
 }
