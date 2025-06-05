@@ -34,6 +34,7 @@ public class Projectile : MonoBehaviour
         if (enemy != null)
         {
             enemy.Fix();
+            EnemiesContainer.instance.RemoveEnemy();
         }
         Destroy(gameObject);
     }
