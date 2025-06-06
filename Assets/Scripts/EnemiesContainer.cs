@@ -15,6 +15,8 @@ public class EnemiesContainer : MonoBehaviour
 
     [SerializeField] private GameObject enemiesContainer;
 
+    [SerializeField] private GameObject enemyPrefab;
+
     void Awake()
     {
         if (instance == null)
@@ -34,6 +36,14 @@ public class EnemiesContainer : MonoBehaviour
         UpdateText();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            CreateEnemy();
+        }
+    }
+
     private void UpdateText()
     {
         numberText.text = enemiesAlive.ToString() + "/" + enemiesTotal.ToString();
@@ -43,5 +53,19 @@ public class EnemiesContainer : MonoBehaviour
     {
         enemiesAlive--;
         UpdateText();
+    }
+
+    public void AddEnemy()
+    {
+        enemiesAlive++;
+        enemiesTotal++;
+        UpdateText();
+    }
+
+    void CreateEnemy()
+    {
+        GameObject currentEnemy = Instantiate(enemyPrefab, new Vector2(-5f, 10f), enemyPrefab.transform.rotation);
+        currentEnemy.transform.parent = enemiesContainer.transform;
+        AddEnemy();
     }
 }

@@ -17468,6 +17468,7 @@ MonoBehaviour:
   enemiesTotal: 0
   numberText: {fileID: 1108777770}
   enemiesContainer: {fileID: 1960178771}
+  enemyPrefab: {fileID: 7744504902799328584, guid: 3f3a4152b6132b84497e1dde4e778e24, type: 3}
 --- !u!4 &1960178773
 Transform:
   m_ObjectHideFlags: 0
